@@ -3,7 +3,7 @@ import {expect} from '@playwright/test';
 
 export class AsideMenuComponent extends BasePage {
     private readonly selectors = {
-        menuBtn: (name: string) => `//*[starts-with(@class, "navigation-tab-list")]//*[@href="/${name}"]//li`
+        menuBtn: (href: string) => `//*[starts-with(@class, "navigation-tab-list")]//*[@href="${href}"]//li`
     }
 
     constructor(page, url = '/') {
