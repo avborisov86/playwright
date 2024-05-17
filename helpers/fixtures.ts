@@ -1,8 +1,8 @@
 import { test as base } from '@playwright/test';
-import {HomePage} from "@pages/homePage";
-import {BasePage} from "@pages/basePage";
-import {PlayerPage} from "@pages/playerPage";
-import {SearchPage} from "@pages/searchPage";
+import {HomePage} from "../pages/homePage";
+import {BasePage} from "../pages/basePage";
+import {PlayerPage} from "../pages/playerPage";
+import {SearchPage} from "../pages/searchPage";
 import {AsideMenuComponent} from "../components/asideMenu";
 
 export interface FixtureType {

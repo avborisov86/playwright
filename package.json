@@ -6,7 +6,9 @@
   "scripts": {
     "clean": "rm -rf allure-results test-results playwright-report",
     "test": "npx playwright test",
-    "allure": "npx allure serve allure-results"
+    "allure": "npx allure serve allure-results",
+    "docker-build": "docker build -t playwright-tests .",
+    "docker-test": "docker run -it --rm playwright-tests"
   },
   "keywords": [],
   "author": "",

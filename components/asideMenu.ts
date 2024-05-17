@@ -1,4 +1,4 @@
-import { BasePage } from 'pages/basePage';
+import { BasePage } from '../pages/basePage';
 import {expect} from '@playwright/test';
 
 export class AsideMenuComponent extends BasePage {

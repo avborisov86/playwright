@@ -1,5 +1,5 @@
-import { BasePage } from './BasePage';
-import {expect} from '@playwright/test';
+import { BasePage } from './basePage';
+import { expect } from '@playwright/test';
 
 export class HomePage extends BasePage {
     private readonly selectors = {
