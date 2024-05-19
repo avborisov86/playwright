@@ -1,6 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 import {testPlanFilter} from "allure-playwright/dist/testplan";
 import {configDotenv} from 'dotenv';
+import * as os from "os";
 import {resolve} from 'path'
 
 configDotenv({ path: resolve(__dirname, process.env.ENV_FILE ?? '.env.stage'), override: true });
@@ -17,7 +18,22 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   grep: testPlanFilter(),
-  reporter: [['list'], ['allure-playwright']],
+  reporter: [
+      ['list'],
+    [
+        'allure-playwright',
+      {
+        detail: true,
+        suiteTitle: false,
+        environmentInfo: {
+          os_platform: os.platform(),
+          os_version: os.version(),
+          node_version: process.version,
+          url: process.env.BASE_URL
+        }
+      }
+    ]
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL: process.env.BASE_URL,

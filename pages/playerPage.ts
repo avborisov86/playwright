@@ -1,5 +1,6 @@
 import { BasePage } from './basePage';
 import {Page} from "@playwright/test";
+import {allure} from "allure-playwright";
 
 export class PlayerPage extends BasePage {
     private readonly selectors = {
@@ -12,7 +13,13 @@ export class PlayerPage extends BasePage {
     }
 
     async playerFullScreenMode (popup: Page): Promise<void> {
-        await popup.locator(this.selectors.playerTimeLine).waitFor({state: 'hidden'});
-        await popup.locator(this.selectors.playerWrapper).dblclick();
+        await allure.step('Переключаем плеер в fullscreen режим', async () => {
+            await allure.step('Ожидаем, пока скроется таймлайн плеера', async () => {
+                await popup.locator(this.selectors.playerTimeLine).waitFor({state: 'hidden'});
+            });
+            await allure.step('Кликаем 2 раза по области плеера', async () => {
+                await popup.locator(this.selectors.playerWrapper).dblclick();
+            });
+        });
     }
 }

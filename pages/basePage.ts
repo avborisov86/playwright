@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+import {allure} from "allure-playwright";
 
 export class BasePage {
     readonly page: Page;
@@ -10,10 +11,14 @@ export class BasePage {
     }
 
     async goto(): Promise<void> {
-        await this.page.goto(this.url, { waitUntil: 'load' });
+        await allure.step(`Переходим по url '${process.env.BASE_URL + this.url}'`, async () => {
+            await this.page.goto(this.url, { waitUntil: 'load' });
+        });
     }
 
     async pressKey(key: string): Promise<void> {
-        await this.page.keyboard.press(key);
+        await allure.step(`Нажимаем на клавиатуре кнопку '${key}'`, async () => {
+            await this.page.keyboard.press(key);
+        });
     }
 }
