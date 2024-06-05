@@ -46,7 +46,7 @@ test.describe('Тесты портала dzen.ru', async () => {
     await asideMenu.assertMenuBtnActiveStatus(video);
   });
 
-  test.only('Есть возможность найти и воспроизвести видео через поисковую выдачу', async ({ asideMenu, searchPage, playerPage}) => {
+  test('Есть возможность найти и воспроизвести видео через поисковую выдачу', async ({ asideMenu, searchPage, playerPage}) => {
     await allure.description('Проверка возможности найти и воспроизвести видео через поисковую выдачу');
     await allure.severity(Severity.NORMAL);
 
