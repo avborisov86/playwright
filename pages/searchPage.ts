@@ -6,9 +6,9 @@ export class SearchPage extends BasePage {
     private readonly selectors = {
         searchInput: '//*[starts-with(@class, "search-desktop")]//input',
         movieCard: '//*[@class="card-layer-video-view__player-block"]'
-    }
+    };
 
-    constructor(page, url = '/search') {
+    constructor (page, url = '/search') {
         super(page, url);
     }
 
@@ -19,7 +19,7 @@ export class SearchPage extends BasePage {
     }
 
     async clickMovieCard (cardIndex = 0): Promise<Page> {
-        let popup: Page
+        let popup: Page;
 
         await allure.step(`Нажимаем на элемент '${this.selectors.movieCard}' с индексом '${cardIndex}'`, async () => {
             await this.page.locator(this.selectors.movieCard).nth(cardIndex).click();

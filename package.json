@@ -7,6 +7,7 @@
     "clean": "rm -rf allure-results test-results playwright-report",
     "test": "npx playwright test",
     "allure": "npx allure serve allure-results",
+    "lint": "eslint",
     "docker-build": "docker build -t playwright-tests .",
     "docker-test": "docker run -it --rm playwright-tests"
   },
@@ -14,11 +15,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.4.0",
     "@playwright/test": "^1.44.0",
     "@types/node": "^20.12.12",
     "allure-commandline": "^2.29.0",
     "allure-js-commons": "^2.15.1",
     "allure-playwright": "^2.15.1",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "eslint": "^9.4.0",
+    "globals": "^15.3.0",
+    "typescript-eslint": "^7.12.0"
   }
 }

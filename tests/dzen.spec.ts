@@ -1,10 +1,10 @@
 import {Page} from '@playwright/test';
-import {test} from 'helpers/fixtures'
+import {test} from 'helpers/fixtures';
 import {paths} from "../data/paths";
 import {searchQueries} from "../data/searchQueries";
 import {KeysEnum} from "../enums/keys";
 import {allure} from "allure-playwright";
-import {Severity} from 'allure-js-commons'
+import {Severity} from 'allure-js-commons';
 
 const {url: {video}} = paths;
 const {enter} = KeysEnum;
@@ -14,7 +14,7 @@ test.describe('Тесты портала dzen.ru', async () => {
 
   test.beforeEach(async ({homePage}) => {
     await homePage.goto();
-  })
+  });
 
   test('Отображается "Лента Дзена" на главной странице', async ({ homePage }) => {
     await allure.description('Проверка отображения "Лента Дзена" на главной странице портала');

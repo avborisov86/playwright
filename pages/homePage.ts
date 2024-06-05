@@ -11,26 +11,26 @@ export class HomePage extends BasePage {
         dzenFeedListArticlesShelf: '[data-testid="native_floor"]',
         dzenFeedListArticleCard: '//article[starts-with(@class, "card-part-wrapper")]',
         dzenFeedListArticleCardSubscribeBtn: '//div[@class="subscribe-button__buttonText-oV"]'
-    }
+    };
 
-    constructor(page, url = '/') {
+    constructor (page, url = '/') {
         super(page, url);
     }
 
-    async assertDzenFeedVisible(): Promise<void> {
+    async assertDzenFeedVisible (): Promise<void> {
         await allure.step(`Проверяем отображение элемента "Лента Дзена" - '${this.selectors.dzenFeedList}'`, async () => {
             await this.page.locator(this.selectors.dzenFeedList).waitFor({ timeout: 3000 });
         });
     }
 
-    async assertArticleCardElements(cardIndex = 0, timeout = 3000): Promise<void> {
+    async assertArticleCardElements (cardIndex = 0, timeout = 3000): Promise<void> {
         await allure.step(`Проверяем отображение аватарки, названия и описания на карточке статьи`, async () => {
 
             const selectors: string[] = [
                 this.selectors.dzenFeedListCardAvatar,
                 this.selectors.dzenFeedListCardTitle,
                 this.selectors.dzenFeedListCardDescription
-            ]
+            ];
 
             await allure.step(`Скроллим страницу до блока элементов - '${this.selectors.dzenFeedListArticlesShelf}'`, async () => {
                 await this.page.locator(this.selectors.dzenFeedListArticlesShelf).scrollIntoViewIfNeeded();
@@ -44,13 +44,13 @@ export class HomePage extends BasePage {
         });
     }
 
-    async articleCardHover(cardIndex = 0): Promise<void> {
+    async articleCardHover (cardIndex = 0): Promise<void> {
         await allure.step(`Наводим курсор на карчтоку элемента - '${this.selectors.dzenFeedListArticleCard}'`, async () => {
             await this.page.locator(this.selectors.dzenFeedListArticleCard).nth(cardIndex).hover();
         });
     }
 
-    async assertSubscribeButton(cardIndex = 0, timeout = 3000): Promise<void> {
+    async assertSubscribeButton (cardIndex = 0): Promise<void> {
         await allure.step('Проверяем отображение кнопки "Подписаться" при наведении курсора на карточку статьи', async () => {
 
             await allure.step(`Проверяем значение атрибута 'class' на элементе '${this.selectors.dzenFeedListArticleCard}'`, async () => {

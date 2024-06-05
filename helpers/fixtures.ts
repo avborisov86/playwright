@@ -15,7 +15,7 @@ export interface FixtureType {
 
 export const test = base.extend<FixtureType>({
     basePage: async ({page}, use) => {
-        await use(new BasePage(page, '/'))
+        await use(new BasePage(page, '/'));
     },
     homePage: async ({ page }, use) => {
         await use(new HomePage(page));

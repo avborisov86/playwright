@@ -6,9 +6,9 @@ export class PlayerPage extends BasePage {
     private readonly selectors = {
         playerWrapper: '//*[@class="video-viewer-player__player-wrap"]',
         playerTimeLine: '//*[@data-testid="timeline-clickable-zone"]'
-    }
+    };
 
-    constructor(page, url = '/video/watch') {
+    constructor (page, url = '/video/watch') {
         super(page, url);
     }
 

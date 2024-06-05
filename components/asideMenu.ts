@@ -5,13 +5,13 @@ import {allure} from "allure-playwright";
 export class AsideMenuComponent extends BasePage {
     private readonly selectors = {
         menuBtn: (href: string) => `//*[starts-with(@class, "navigation-tab-list")]//*[@href="${href}"]//li`
-    }
+    };
 
-    constructor(page, url = '/') {
+    constructor (page, url = '/') {
         super(page, url);
-    }
+    };
 
-    async clickMenuBtn(name: string): Promise<void> {
+    async clickMenuBtn (name: string): Promise<void> {
         await allure.step(`Переходим в меню '${this.selectors.menuBtn(name)}'`, async () => {
 
             await allure.step(`Нажимаем на кнопку меню '${this.selectors.menuBtn(name)}'`, async () => {
@@ -23,7 +23,7 @@ export class AsideMenuComponent extends BasePage {
         });
     }
 
-    async assertMenuBtnActiveStatus(name: string): Promise<void> {
+    async assertMenuBtnActiveStatus (name: string): Promise<void> {
         await allure.step(`Проверяем статус кнопки меню '${this.selectors.menuBtn(name)}'`, async () => {
 
             await allure.step(`Проверяем наличие у кнопки '${this.selectors.menuBtn(name)}' атрибута 'aria-selected'`, async () => {

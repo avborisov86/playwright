@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 import {testPlanFilter} from "allure-playwright/dist/testplan";
 import {configDotenv} from 'dotenv';
 import * as os from "os";
-import {resolve} from 'path'
+import {resolve} from 'path';
 
 configDotenv({ path: resolve(__dirname, process.env.ENV_FILE ?? '.env.stage'), override: true });
 

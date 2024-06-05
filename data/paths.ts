@@ -11,4 +11,4 @@ export const paths = {
         videoGames: '/video/games',
         videoCartoons: '/video/cartoons'
     }
-}
+};
